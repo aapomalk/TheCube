@@ -1,0 +1,19 @@
+Side U
+[red   , yellow]
+[white , blue  ]
+Side F
+[blue  , yellow]
+[violet, violet]
+Side R
+[violet, red   ]
+[white , red   ]
+Side B
+[green , white ]
+[blue  , green ]
+Side L
+[green , red   ]
+[yellow, white ]
+Side D
+[blue  , green ]
+[violet, yellow]
+22434

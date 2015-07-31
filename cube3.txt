@@ -1,0 +1,25 @@
+Side U
+[yellow, violet, violet]
+[yellow, white , white ]
+[white , green , white ]
+Side F
+[blue  , yellow, blue  ]
+[yellow, green , violet]
+[green , white , violet]
+Side R
+[violet, violet, yellow]
+[green , red   , blue  ]
+[white , red   , red   ]
+Side B
+[green , yellow, blue  ]
+[violet, blue  , red   ]
+[green , blue  , yellow]
+Side L
+[red   , red   , red   ]
+[green , violet, blue  ]
+[blue  , red   , yellow]
+Side D
+[red   , green , green ]
+[blue  , yellow, white ]
+[violet, white , white ]
+11596
