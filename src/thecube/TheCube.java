@@ -38,6 +38,9 @@ public class TheCube {
     }
 
     private static void solver() {
+        GeneralAlgorithms algs = new GeneralAlgorithms();
+        algs.put("test", "x m, y m, U, y M, u, x M, U, y m, u, y M", new String[] {"x", "y"});
+        
         Scanner scanner = new Scanner(System.in);
         int cubenumber = 0;
         boolean playground = false;
@@ -72,12 +75,27 @@ public class TheCube {
             welcome();
             printInstructions(playground);
         }
+        
+        //algs.get(c.getCubenumber(), "test", new String[] {"-1", "2"}).useOn(c);
+        //System.out.println(c);
 
         while (!Checker.check(c) || playground) {
             System.out.print("Turn cube: ");
             String line = scanner.nextLine();
             if (line.equals("exit")) {
                 break;
+            } else if (line.equals("GeneralAlgorithm")) {
+                System.out.println("Syntax:\nname(var1,var2) var1 R, var2 L");
+                GeneralAlgorithmsGenerator.generate(algs, scanner.nextLine());
+                continue;
+            } else if (line.equals("algorithm")) {
+                System.out.println("Syntax:\nname(var1,var2)");
+                GeneralAlgorithmsGenerator.get(algs, scanner.nextLine(), c.getCubenumber()).useOn(c);
+                System.out.println(c);
+                continue;
+            } else if (line.equals("list")) {
+                System.out.print(algs);
+                continue;
             } else if (line.equals("time")) {
                 System.out.println("Cubes lifetime: " + printLifetime(c.getLifetime()));
                 continue;
