@@ -8,7 +8,6 @@ import algorithmGenerator.*;
 import fileManagers.ReadFromFile;
 import fileManagers.StringToCube;
 import fileManagers.WriteToFile;
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -79,6 +78,9 @@ public class TheCube {
             String line = scanner.nextLine();
             if (line.equals("exit")) {
                 break;
+            } else if (line.equals("time")) {
+                System.out.println("Cubes lifetime: " + printLifetime(c.getLifetime()));
+                continue;
             } else if (line.equals("supercube")) {
                 c.changeSuperCubeMode();
                 System.out.println(c);
