@@ -4,6 +4,8 @@
  */
 package algorithmGenerator;
 
+import thecube.Cube;
+
 /**
  *
  * @author Aapo
@@ -21,13 +23,33 @@ public class GeneralAlgorithmsGenerator {
         algs.put(name, algorithm, variables);
     }
     
-    public static Algorithm get(GeneralAlgorithms algs, String command, int cubenumber) {
+    public static void use(GeneralAlgorithms algs, String command, Cube c) {
+        Algorithm alg;
+        if (!command.contains("(")) {
+            alg = AlgorithmsGenerator.generate(command, c.getCubenumber());
+            alg.useOn(c);
+            return;
+        }
+        
         String[] parts = command.split("\\(");
         String name = parts[0];
         
         String[] parts2 = parts[1].split("\\)");
         String[] numbers = parts2[0].split(",");
         
-        return algs.get(cubenumber, name, numbers);
+        alg = algs.get(c.getCubenumber(), name, numbers);
+        
+        if (parts2.length < 2) {
+            alg.useOn(c);
+        } else {
+            String command2 = parts2[1];
+            if (command2.contains("reverse") && command2.contains("mirror")) {
+                alg.useMirrorReverse(c);
+            } else if (command2.contains("reverse")) {
+                alg.useReverse(c);
+            } else if (command2.contains("mirror")) {
+                alg.useMirror(c);
+            }
+        }
     }
 }

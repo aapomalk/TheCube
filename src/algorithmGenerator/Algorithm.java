@@ -46,7 +46,7 @@ public class Algorithm implements Algorithms {
     
     @Override
     public void useReverse(Cube c) {
-        for (int i = this.getLength(); i >= 0; i--) {
+        for (int i = this.getLength() - 1; i >= 0; i--) {
             this.getIndex(i).useReverse(c);
         }
     }
@@ -60,7 +60,7 @@ public class Algorithm implements Algorithms {
 
     @Override
     public void useMirrorReverse(Cube c) {
-        for (int i = this.getLength(); i >= 0; i--) {
+        for (int i = this.getLength() - 1; i >= 0; i--) {
             this.getIndex(i).useMirrorReverse(c);
         }
     }

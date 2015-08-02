@@ -88,11 +88,6 @@ public class TheCube {
                 System.out.println("Syntax:\nname(var1,var2) var1 R, var2 L");
                 GeneralAlgorithmsGenerator.generate(algs, scanner.nextLine());
                 continue;
-            } else if (line.equals("algorithm")) {
-                System.out.println("Syntax:\nname(var1,var2)");
-                GeneralAlgorithmsGenerator.get(algs, scanner.nextLine(), c.getCubenumber()).useOn(c);
-                System.out.println(c);
-                continue;
             } else if (line.equals("list")) {
                 System.out.print(algs);
                 continue;
@@ -116,15 +111,17 @@ public class TheCube {
                 System.out.println(c);
                 continue;
             }
-            Algorithm alg;
+            //Algorithm alg;
             try {
-                alg = AlgorithmsGenerator.generate(line, c.getCubenumber());
+                //alg = AlgorithmsGenerator.generate(line, c.getCubenumber());
+                GeneralAlgorithmsGenerator.use(algs, line, c);
             } catch (Error e) {
                 System.out.println(e);
                 printInstructions(playground);
                 continue;
             }
-            alg.useOn(c);
+            //alg.useOn(c);
+            
             System.out.println(c);
         }
         System.out.println("Cubes lifetime: " + printLifetime(c.getLifetime()));
@@ -194,6 +191,14 @@ public class TheCube {
         System.out.println("Write exit if you want to exit");
         System.out.println("Write supercube to change from or to supercube");
         System.out.println("Write colormode to change textmode");
+        System.out.println("");
+        System.out.println("Write GeneralAlgorithm if you want to create general algorithm");
+        System.out.println("Write list if you want a list of general algorithms");
+        System.out.println("");
+        System.out.println("You can use general algorithms with the next syntax:");
+        System.out.println("nameOfAlgorithm(1,2) mirror reverse");
+        System.out.println("mirror and reverse are both additional parameters");
+        System.out.println("Note that mirror might change the sign of number you are using");
         if (playground) {
             return;
         }

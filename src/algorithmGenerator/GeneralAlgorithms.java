@@ -33,7 +33,7 @@ public class GeneralAlgorithms {
     public String toString() {
         String toReturn = "";
         for (String key : algs.keySet()) {
-            toReturn = toReturn + key + " " + algs.get(key) + "\n";
+            toReturn = toReturn + key + algs.get(key) + "\n";
         }
         return toReturn;
     }

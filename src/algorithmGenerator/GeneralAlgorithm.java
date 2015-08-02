@@ -49,7 +49,7 @@ public class GeneralAlgorithm {
         for (int i = 0; i < this.variables.length; i++) {
             toReturn = toReturn + this.variables[i];
             if (i < this.variables.length - 1) {
-                toReturn = toReturn + ", ";
+                toReturn = toReturn + ",";
             } else {
                 toReturn = toReturn + ") ";
             }
