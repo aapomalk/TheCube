@@ -13,10 +13,18 @@ import thecube.Cube;
 public class GeneralAlgorithmsGenerator {
     public static void generate(GeneralAlgorithms algs, String command) {
         String[] parts = command.split("\\(");
+        if (parts.length == 0) {
+            throw new Error("General algorithm must have a name");
+        }
         String name = parts[0];
         
         String[] parts2 = parts[1].split("\\) ");
-        String[] variables = parts2[0].split(",");
+        String[] variables;
+        if (parts2.length == 0) {
+            variables = new String[] {};
+        } else {
+            variables = parts2[0].split(",");
+        }
         
         String algorithm = parts2[1];
         
@@ -32,10 +40,18 @@ public class GeneralAlgorithmsGenerator {
         }
         
         String[] parts = command.split("\\(");
+        if (parts.length == 0) {
+            throw new Error("General algorithm must have name");
+        }
         String name = parts[0];
         
+        String[] numbers;
         String[] parts2 = parts[1].split("\\)");
-        String[] numbers = parts2[0].split(",");
+        if (parts2.length == 0) {
+            numbers = new String[] {};
+        } else {
+            numbers = parts2[0].split(",");
+        }
         
         alg = algs.get(c.getCubenumber(), name, numbers);
         
@@ -49,6 +65,8 @@ public class GeneralAlgorithmsGenerator {
                 alg.useReverse(c);
             } else if (command2.contains("mirror")) {
                 alg.useMirror(c);
+            } else {
+                alg.useOn(c);
             }
         }
     }

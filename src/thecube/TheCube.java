@@ -114,7 +114,7 @@ public class TheCube {
             //Algorithm alg;
             try {
                 //alg = AlgorithmsGenerator.generate(line, c.getCubenumber());
-                GeneralAlgorithmsGenerator.use(algs, line, c);
+                AlgorithmPiper.pipe(algs, line, c);
             } catch (Error e) {
                 System.out.println(e);
                 printInstructions(playground);
